@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación | Selección</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-verde">
+
+  <!-- Decoración -->
+  <div class="hoja hoja-top"></div>
+  <div class="hoja hoja-bottom"></div>
+
+  <div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card invitacion shadow-lg p-5 text-center fade-in">
+
+      <!-- Imagen / Logo -->
+      <img src="uploads/foto2.png" class="img-fluid portada mb-4" alt="Invitación">
+
+      <h1 class="titulo mb-2">CÉSAR & RAQUEL</h1>
+      <p class="versiculo mb-4">
+        Con mucha alegría te invitamos a celebrar<br>
+        un día muy especial para nosotros 
+      </p>
+
+      <hr class="separador">
+
+      <h5 class="mb-3">Selecciona la cantidad de espacios reservados</h5>
+
+      <div class="d-grid gap-3 mt-4">
+
+        <a href="invitacion.html?espacios=1" class="btn btn-verde btn-lg">
+          <i data-lucide="user"></i> 1 Espacio
+        </a>
+
+        <a href="invitacion.html?espacios=2" class="btn btn-verde btn-lg">
+          <i data-lucide="users"></i> 2 Espacios
+        </a>
+
+        <a href="invitacion.html?espacios=3" class="btn btn-verde btn-lg">
+          <i data-lucide="users-round"></i> 3 Espacios
+        </a>
+
+      </div>
+
+      <p class="mt-4 small text-muted">
+         Gracias por ser parte de nuestra historia
+      </p>
+
+    </div>
+  </div>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
