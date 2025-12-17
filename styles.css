@@ -1,7 +1,31 @@
 /* Fondo */
 .bg-verde {
+  /* Tu degradado original */
   background: linear-gradient(180deg, #eaf1ec, #f7faf8);
-  min-height: 100vh;
+  /* background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); */
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Capa de textura de papel */
+.bg-verde::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Imagen de textura de papel arrugado con transparencia */
+  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); 
+  
+  /* Opacidad para que no opaque tus colores verdes */
+  opacity: 5; 
+  z-index: 0;
+  
+  /* Modo de mezcla para que las arrugas se integren al color */
+  mix-blend-mode: multiply; 
+  pointer-events: none; /* Permite hacer clic en botones debajo */
 }
 
 /* Card */
@@ -21,7 +45,14 @@
 
 .portada2 {
   border-radius: 18px;
-  max-height: 580px;
+  max-height: 620px;
+  object-fit: cover;
+}
+
+
+.portada3 {
+  border-radius: 18px;
+  max-height: 1120px;
   object-fit: cover;
 }
 
@@ -123,4 +154,186 @@ i[data-lucide] {
 .hoja-bottom {
   bottom: -40px;
   right: -40px;
+}
+
+.texto-boda {
+    /* Familia de fuentes: Garamond es la principal, Serif es el respaldo */
+    font-family: "EB Garamond", "Garamond", "Hoefler Text", "Times New Roman", serif;
+    
+    /* Tamaño de fuente 13pt o 13px (13pt suele verse mejor para invitaciones) */
+    font-size: 20pt;
+    
+    /* Opcional: mejora la lectura en invitaciones */
+    line-height: 1.2; 
+    color: #333333;
+}
+
+.texto-boda2 {
+    /* Familia de fuentes: Garamond es la principal, Serif es el respaldo */
+    font-family: "EB Garamond", "Garamond", "Hoefler Text", "Times New Roman", serif;
+    
+    /* Tamaño de fuente 13pt o 13px (13pt suele verse mejor para invitaciones) */
+    font-size: 30pt;
+    
+    /* Opcional: mejora la lectura en invitaciones */
+    line-height: 1.2; 
+    color: #333333;
+}
+
+
+       
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 10px;
+            font-weight: normal;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: normal;
+            margin-top: -10px;
+        }
+
+        .separator {
+            padding-top: 10px;
+        }
+
+        .footer-text {
+            font-style: italic;
+            font-size: 2.2rem;
+            margin-top: 50px;
+        }
+        
+
+        /* Reproductor de musica */
+
+        .player-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Contenedor de controles */
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* Botón Play/Pause */
+        .play-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Icono SVG blanco */
+        .play-btn svg {
+            fill: white;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Contenedor de la barra y tiempos */
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #b3b3b3;
+        }
+
+        /* Estilo personalizado para el input range (la barra) */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #444; /* Color de fondo de la barra (gris oscuro) */
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+            /* Esto crea el efecto de progreso blanco */
+            background-image: linear-gradient(#fff, #fff);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* El círculo (thumb) del deslizador */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+
+        /* Ocultar el video de YouTube real */
+        #youtube-player {
+            display: none; 
+            /* Nota: YouTube requiere que el player exista, pero podemos ocultarlo visualmente */
+        }
+
+        /* ===== BOTÓN PLAY VISIBLE ===== */
+.reproductor-capsula {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.play-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #7a8f7a; /* verde boda */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.play-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: white;
+}
+
+.play-btn:hover {
+  background-color: #5f6f5b;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
 }

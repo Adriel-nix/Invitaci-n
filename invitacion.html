@@ -7,7 +7,7 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Lucide Icons -->
+  <!-- Lucide -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <link rel="stylesheet" href="styles.css">
@@ -22,69 +22,178 @@
   <div class="container my-5">
     <div class="card invitacion shadow-lg p-4 text-center fade-in">
 
-      <img src="uploads/foto1.png" class="img-fluid portada mb-4" alt="Invitación">
-      <img src="uploads/foto2.png" class="img-fluid portada mb-4" alt="Invitación">
-      <img src="uploads/foto3.png" class="img-fluid portada mb-4" alt="Invitación">
-      <a id="waze" target="_blank" class="btn btn-outline-verde mt-2">
-          📍 Ver ubicación
-    </a>
+      <!-- FOTO PRINCIPAL -->
+      <img src="uploads/foto1.png" class="img-fluid portada2 mb-4" alt="Invitación">
 
-    <img src="uploads/foto4.png" class="mt-5  img-fluid portada2 mb-4" alt="Invitación">    
+      <!-- 🎵 REPRODUCTOR -->
+      <div class="reproductor-capsula mb-5">
+        <button class="play-btn" id="playBtn">
+          <svg id="playIcon" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
 
-    <hr class="separador mt-2">
-
-    <img src="uploads/foto5.png" class="img-fluid portada mb-4" alt="Invitación">
-
-    <hr class="separador">
-    <img src="uploads/foto7.png" class="img-fluid portada2 mb-4" alt="Invitación">
-    <img src="uploads/foto6.png" class="img-fluid portada mb-4" alt="Invitación">
-
-      <hr class="separador">
-
-      <img src="uploads/foto8.png" class="img-fluid portada mb-4" alt="Invitación">
-
-     
-     <div class="seccion slide-up delay-1">
-        <h5 id="espaciosTexto" class="espacios strong"></h5>
-        <p>Favor confirmar tu asistencia antes del 01 de febrero 2026; 
-de lo contrario, consideraremos que no podrás acompañarnos.
-
- En el siguiente enlace podrás recomendar canciones para nuestra boda y compartir algunos detalles adicionales.</p>
+        <div class="progress-container">
+          <span id="currentTime">0:00</span>
+          <input type="range" id="progressBar" value="0" min="0">
+          <span id="duration">0:00</span>
+        </div>
       </div>
 
+      <audio id="miAudio" src="audio/Juan Luis Guerra - Mi Bendicion.mp4"></audio>
+
       <hr class="separador">
 
-      <div class="seccion slide-up delay-4">
-        <p>💌 Confirmar antes del 01 de febrero 2026<strong id="confirmarAntes"></strong></p>
+      <!-- ICONO + VERSÍCULO -->
+      <img src="uploads/foto2.png" class="img-fluid portada mb-4">
 
-        <a id="formulario" target="_blank" class="btn btn-verde mt-2">
+      <hr class="separador">
+
+      <!-- UBICACIÓN -->
+      <img src="uploads/foto9.png" class="img-fluid portada mb-3">
+      <a id="waze" target="_blank" class="btn btn-outline-verde mb-5">
+        📍 Ver ubicación
+      </a>
+
+      <!-- VESTIMENTA -->
+      <img src="uploads/foto5.png" class="img-fluid portada mb-4">
+
+      <hr class="separador">
+
+      <!-- CONFIRMACIÓN -->
+      <div class="seccion slide-up">
+        <h5 id="espaciosTexto" class="texto-boda2 mb-3"></h5>
+
+        <p class="texto-boda">
+          Favor confirmar tu asistencia antes del 12 de febrero 2026;
+          de lo contrario, consideraremos que no podrás acompañarnos.
+        </p>
+
+        <p class="texto-boda">
+          Evento exclusivo para adultos, con cariño solicitamos no asistir con mascotas.
+        </p>
+
+        <a id="formulario" target="_blank" class="btn btn-verde mt-3">
           Confirmar asistencia
         </a>
-
-        
       </div>
+
+      <hr class="separador">
+
+      <!-- ⏳ COUNTDOWN -->
+      <div class="mt-5">
+        <h1 class="texto-boda2">FALTAN</h1>
+
+        <div class="countdown">
+          <div class="time-box">
+            <span id="days">000</span>
+            <span class="label">Días</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-box">
+            <span id="hours">00</span>
+            <span class="label">Horas</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-box">
+            <span id="minutes">00</span>
+            <span class="label">Minutos</span>
+          </div>
+        </div>
+
+        <p class="texto-boda2 mt-2">Para nuestro gran día</p>
+      </div>
+
+      <hr class="separador">
+
+      <!-- DESPEDIDA -->
+      <img src="uploads/foto12.png" class="img-fluid portada3 mb-4">
 
     </div>
   </div>
 
-<script src="data.js"></script>
+  <!-- DATA -->
+  <script src="data.js"></script>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const espacios = params.get("espacios");
+  <!-- LÓGICA -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const espacios = params.get("espacios");
 
- 
-  document.getElementById("waze").href = invitacionData.waze;
-  document.getElementById("formulario").href = invitacionData.formulario;
+    document.getElementById("waze").href = invitacionData.waze;
+    document.getElementById("formulario").href = invitacionData.formulario;
 
-  let textoEspacios = "";
-  if (espacios == 1) textoEspacios = "Hemos reservado un espacio para ti ";
-  if (espacios == 2) textoEspacios = "Hemos reservado dos espacios para ti ";
-  if (espacios == 3) textoEspacios = "Hemos reservado tres espacios para ti ";
+    if (espacios == 1) espaciosTexto.innerText = "Hemos reservado un espacio para ti ";
+    if (espacios == 2) espaciosTexto.innerText = "Hemos reservado dos espacios ";
+    if (espacios == 3) espaciosTexto.innerText = "Hemos reservado tres espacios ";
 
-  document.getElementById("espaciosTexto").innerText = textoEspacios;
+    lucide.createIcons();
+  </script>
 
-  lucide.createIcons();
+  <!-- COUNTDOWN -->
+  <script>
+    const targetDate = new Date(2026, 3, 12, 15, 30).getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const d = targetDate - now;
+
+      document.getElementById("days").innerText =
+        Math.floor(d / (1000*60*60*24)).toString().padStart(3,"0");
+      document.getElementById("hours").innerText =
+        Math.floor((d%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,"0");
+      document.getElementById("minutes").innerText =
+        Math.floor((d%(1000*60*60))/(1000*60)).toString().padStart(2,"0");
+    },1000);
+  </script>
+
+  <script>
+  const audio = document.getElementById('miAudio');
+  const playBtn = document.getElementById('playBtn');
+  const progressBar = document.getElementById('progressBar');
+  const currentTimeEl = document.getElementById('currentTime');
+  const durationEl = document.getElementById('duration');
+
+  const playSVG = '<path d="M8 5v14l11-7z"/>';
+  const pauseSVG = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+
+  /* Cargar duración */
+  audio.addEventListener('loadedmetadata', () => {
+    progressBar.max = audio.duration;
+    durationEl.innerText = formatTime(audio.duration);
+  });
+
+  /* Play / Pause */
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playBtn.querySelector('svg').innerHTML = pauseSVG;
+    } else {
+      audio.pause();
+      playBtn.querySelector('svg').innerHTML = playSVG;
+    }
+  });
+
+  /* Progreso */
+  audio.addEventListener('timeupdate', () => {
+    progressBar.value = audio.currentTime;
+    currentTimeEl.innerText = formatTime(audio.currentTime);
+
+    const progress = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.backgroundSize = progress + '% 100%';
+  });
+
+  /* Mover barra */
+  progressBar.addEventListener('input', () => {
+    audio.currentTime = progressBar.value;
+  });
+
+  function formatTime(seconds) {
+    const min = Math.floor(seconds / 60);
+    let sec = Math.floor(seconds % 60);
+    if (sec < 10) sec = '0' + sec;
+    return min + ':' + sec;
+  }
 </script>
 
 </body>
