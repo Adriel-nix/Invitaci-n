@@ -27,20 +27,7 @@
       <!-- FOTO PRINCIPAL -->
       <img src="uploads/foto1.png" class="img-fluid portada2 mb-4" alt="Invitación">
 
-      <!-- REPRODUCTOR -->
-      <div class="reproductor-capsula mt-4 mb-5">
-        <button class="play-btn" id="playBtn">
-          <svg id="playIcon" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </button>
-
-        <div class="progress-container">
-          <span id="currentTime">0:00</span>
-          <input type="range" id="progressBar" value="0" min="0">
-          <span id="duration">0:00</span>
-        </div>
-      </div>
+      
 
       <audio id="miAudio" src="audio/Mi bendición - Juan Luis Guerra (Letra).mp4"></audio>
 
@@ -50,6 +37,27 @@
       <img src="uploads/foto2.png" class="img-fluid portada mb-4">
 
       <hr class="separador">
+
+        <!-- REPRODUCTOR -->
+      <div class="reproductor-capsula d-flex flex-column align-items-center mt-4 mb-5">
+  <p class="TituloReproductor mt-5">Dale play a nuestra canción</p>
+
+  <div class="d-flex align-items-center justify-content-center gap-3 w-100" style="max-width: 500px;">
+    
+    <button class="play-btn flex-shrink-0" id="playBtn">
+      <svg id="playIcon" viewBox="0 0 24 24" width="30" height="30" fill="white">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+
+    <div class="progress-container d-flex align-items-center gap-2 flex-grow-1">
+      <span id="currentTime" class="small text-muted">0:00</span>
+      <input type="range" class="form-range" id="progressBar" value="0" min="0">
+      <span id="duration" class="small text-muted">3:05</span>
+    </div>
+
+  </div>
+</div>
 
       <!-- UBICACIÓN -->
       <img src="uploads/foto9.png" class="img-fluid portada mb-3">
@@ -86,8 +94,8 @@
       <img src="uploads/foto7.png" class="img-fluid portada2 mt-5 mb-4">
 
       
-
-      <img src="uploads/foto14.png" class="img-fluid portada3 mt-5 mb-4">
+      <!-- FOTO DE SUGERENCIA DE REGALOS -->
+      <img src="uploads/foto15.png" class="img-fluid portada3 mt-5 mb-4">
 
       <hr class="separador">
 

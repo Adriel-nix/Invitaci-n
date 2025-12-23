@@ -382,3 +382,12 @@ i[data-lucide] {
   text-transform: uppercase;
   color: #2f2f2f;
 }
+
+.TituloReproductor {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #2f2f2f;
+  position: relative;
+  
+}
